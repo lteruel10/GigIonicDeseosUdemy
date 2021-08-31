@@ -1,10 +1,32 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header no-border>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start" >
+        <ion-back-button defaultHref="/" color="tertiary">Back
+        </ion-back-button>
+    </ion-buttons>
     <ion-title>Agregar Lista</ion-title>
-    <p>Agregar lista!</p>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
 
+<ion-content color="dark">
+  <ion-list color="dark">
+    <!-- los ion-item se colocan siempre por los scrooll -->
+    <ion-item color="dark">
+      <ion-label position="floating">Nuevo Item</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <!-- items agregados -->
+  <ion-list color="dark">
+    <ion-list-header color="dark">
+      <ion-label>Tareas por hacer:</ion-label>
+     </ion-list-header>
+     <ion-item color="dark">
+       <ion-checkbox slot="start" color="tertiary">Awesome Label</ion-checkbox>
+       <ion-label>Recordar comer</ion-label>
+     </ion-item>
+  </ion-list>
+ 
 </ion-content>
