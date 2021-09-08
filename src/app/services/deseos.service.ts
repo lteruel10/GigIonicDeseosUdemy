@@ -10,17 +10,33 @@ export class DeseosService {
 
   constructor() {//bob
     console.log("Se inicio el servicio!");
-    const lista1=new Lista('Recolectar piedras del infinto');
-    const lista2=new Lista('Heroes a eliminar');
-    this.listas.push(lista1,lista2)
-    console.log(this.listas);
+   // const lista1=new Lista('Recolectar piedras del infinto');
+   // const lista2=new Lista('Heroes a eliminar');
+   // this.listas.push(lista1,lista2)
+   // console.log(this.listas);
+    this.cargarStorage();
   }
 
   crearLista(titulo:string){
     const nuevaLista=new Lista(titulo);
-    this.listas.push(nuevaLista)
-
-
+    this.listas.push(nuevaLista);
+    this.guardarStorage();
 
   }
+
+  guardarStorage(){
+    localStorage.setItem('data', JSON.stringify(this.listas));
+    console.log(this.listas);
+  }
+  
+  cargarStorage(  ){
+
+    if (localStorage.getItem('data')){
+      this.listas=JSON.parse( localStorage.getItem('data'));
+    }else{
+      this.listas=[] ;
+    }
+
+  }
+
 }
