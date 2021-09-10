@@ -13,13 +13,10 @@ export class Tab1Page {
   constructor(public deseosService:DeseosService,
     private router:Router, 
     private  alertCtrl: AlertController) {
-
-    
   }
 
 //async conviete la funcion o metodo en una promesa
  async agregarLista(){
-    // this.router.navigateByUrl('/tabs/tab1/agregar')
     const alert = await this.alertCtrl.create({
       cssClass: 'my-custom-class',
       header: 'Nueva Lista',
@@ -47,8 +44,10 @@ export class Tab1Page {
               return;
             }
             // si no es cero, tengo que crear la lista... vamos a servicios
-            this.deseosService.crearLista(data.titulo);
+           const listaId= this.deseosService.crearLista(data.titulo);
+           console.log(data.titulo);
 
+           this.router.navigateByUrl(`/tabs/agregar/${listaId}`)
         }
 
       }]
