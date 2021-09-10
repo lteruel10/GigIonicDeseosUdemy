@@ -55,5 +55,16 @@ export class AgregarPage implements OnInit {
     this.deseosService.guardarStorage();
 
   }
+  borrar(i:number){
+    this.lista.items.splice(i,1)
+    this.deseosService.guardarStorage();//para hacer persistente el cambio
+ }
+ borrarTodo(){
+    const x=this.lista.items.length;
+    this.lista.items.splice(0,x)
+    this.deseosService.guardarStorage();//para hacer persistente el cambio
+
+
+ }
 
 }

@@ -15,8 +15,12 @@
 
   <app-explore-container name="Lista"></app-explore-container>
   <ion-list color ="dark">
-    <ion-item *ngFor="let lista of deseosService.listas" detail color="dark">
-      <ion-label>{{lista.titulo}}</ion-label>
+    <ion-item *ngFor="let lista of deseosService.listas" 
+              detail 
+              color="dark"
+              (click)="seleccionarLista(lista)">
+      <ion-label >{{lista.titulo}}</ion-label>
+      <ion-note slot="end" color="tertiary">{{lista.items.length}} Items</ion-note>
     </ion-item>
   </ion-list>
 

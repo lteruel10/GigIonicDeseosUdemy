@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { Lista } from '../models/lista.models';
 import { DeseosService } from '../services/deseos.service';
 
 @Component({
@@ -56,7 +57,13 @@ export class Tab1Page {
     await alert.present();
 
     const { role } = await alert.onDidDismiss();
-    console.log('onDidDismiss resolved with role', role);
+    // console.log('onDidDismiss resolved with role', role);
+
+  }
+
+  seleccionarLista(lista:Lista){
+    //console.log(lista);
+    this.router.navigateByUrl(`/tabs/agregar/${lista.id}`)
 
   }
 
