@@ -62,7 +62,7 @@ export class Tab1Page {
   }
 
   seleccionarLista(lista:Lista){
-    //console.log(lista);
+    console.log(lista);
     this.router.navigateByUrl(`/tabs/agregar/${lista.id}`)
 
   }
